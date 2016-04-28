@@ -17,7 +17,8 @@
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
-            <artifactId>cucumber-java</artifactId>
+            <artifactId>cucumber-junit</artifactId>
+            <scope>test</scope>
             <version>1.2.4</version>
         </dependency>
         <dependency>
