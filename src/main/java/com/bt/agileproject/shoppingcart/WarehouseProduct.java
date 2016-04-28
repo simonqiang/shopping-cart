@@ -1,4 +1,4 @@
-package shoppingcart;
+package com.bt.agileproject.shoppingcart;
 
 import java.util.Date;
 
