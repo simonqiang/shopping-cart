@@ -1,6 +1,7 @@
 package com.bt.agileproject.shoppingcart.admin;
 
 import com.bt.agileproject.shoppingcart.Store;
+import com.opencsv.CSVReader;
 import org.junit.Test;
 
 /**
@@ -10,8 +11,9 @@ public class StoreTest {
     @Test
     public void import_the_products_and_their_prices_from_CSV_file()
     {
-        Store store = new Store();
-        store.importProductFromCSV()
+        CSVReader csvReader = new CSVReader();
+        Store store = new Store(csvReader);
+        store.importProductFromCSV();
     }
 
 }
