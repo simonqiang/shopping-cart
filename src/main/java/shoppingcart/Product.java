@@ -6,10 +6,10 @@ import java.util.UUID;
  * Created by 608502920 on 4/28/2016.
  */
 public class Product {
-    private String name;
-    private double price;
-    private UUID id;
-    private int quantity;
+    protected String name;
+    protected double price;
+    protected UUID id;
+    protected int quantity;
 
     public String getName() {
         return name;
