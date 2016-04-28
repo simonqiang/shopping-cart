@@ -9,6 +9,15 @@ import java.util.List;
 public class Store {
 
     private List<String> products = new ArrayList<String>();
+    private CSVReader csvReader;
+
+    public Store(List<String> products) {
+        this.products = products;
+    }
+
+    public Store(CSVReader csvReader) {
+        this.csvReader = csvReader;
+    }
 
     public String catalogDisplay() {
         if (products.isEmpty()) {
@@ -19,5 +28,9 @@ public class Store {
 
     public void add(String item) {
         products.add(item);
+    }
+
+    public void importProductFromCSV() {
+
     }
 }
