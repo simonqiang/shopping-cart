@@ -40,4 +40,7 @@ public class WarehouseTest {
         assertEquals(false, warehouseProduct.isMultiBuy());
 
     }
+
+    @Test
+    public void test_view_dispatch 
 }
