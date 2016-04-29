@@ -2,6 +2,7 @@ package com.bt.agileproject.shoppingcart.product;
 
 import com.bt.agileproject.shoppingcart.product.Product;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -10,12 +11,10 @@ import java.util.Date;
 public class WarehouseProduct extends Product {
 
 
-    public WarehouseProduct(String name, double price, String id,
+    public WarehouseProduct(String name, BigDecimal price, Long id,
                             int quantity, Date discountStartDate, Date discountEndDate,
                             double discount, boolean multiBuy) {
-        setName(name);
-        setPrice(price);
-        setId(id);
+        super(id, name, price);
         setDiscountStartDate(discountStartDate);
         setDiscountEndDate(discountEndDate);
         setDiscount(discount);

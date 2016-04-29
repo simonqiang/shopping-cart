@@ -5,6 +5,7 @@ import com.opencsv.CSVReader;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -62,7 +63,7 @@ public class Warehouse {
                 isMultiBuy = true;
             }
 
-            return new WarehouseProduct(name, Double.parseDouble(price), id, Integer.parseInt(quantity), startDate, endDate, Double.parseDouble(discount), isMultiBuy);
+            return new WarehouseProduct(name, new BigDecimal(price), Long.valueOf(id), Integer.parseInt(quantity), startDate, endDate, Double.parseDouble(discount), isMultiBuy);
         } catch (ParseException e) {
             return null;
         }

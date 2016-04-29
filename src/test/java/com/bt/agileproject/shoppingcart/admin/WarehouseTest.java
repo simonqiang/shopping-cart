@@ -26,21 +26,21 @@ public class WarehouseTest {
         WarehouseProduct warehouseProduct = warehouse.getProducts().get(0);
 
         assertEquals("iphone 6", warehouseProduct.getName());
-        assertEquals(3000d, warehouseProduct.getPrice(), 0);
-        assertEquals("067e6162-3b6f-4ae2-a171-2470b63dff00", warehouseProduct.getId());
+        assertEquals(3000d, warehouseProduct.getPrice().doubleValue(), 0);
+        assertEquals(10000L, warehouseProduct.getId().longValue());
         assertEquals(0d, warehouseProduct.getDiscount(), 0);
         assertEquals(false, warehouseProduct.isMultiBuy());
 
         warehouseProduct = warehouse.getProducts().get(1);
 
         assertEquals("iphone 6 plus", warehouseProduct.getName());
-        assertEquals(4000d, warehouseProduct.getPrice(), 0);
-        assertEquals("067e6162-3b6f-4ae2-a171-2470b63dff11", warehouseProduct.getId());
+        assertEquals(4000d, warehouseProduct.getPrice().doubleValue(), 0);
+        assertEquals(10001L, warehouseProduct.getId().longValue());
         assertEquals(0d, warehouseProduct.getDiscount(), 0);
         assertEquals(false, warehouseProduct.isMultiBuy());
 
     }
 
-    @Test
-    public void test_view_dispatch 
+//    @Test
+//    public void test_view_dispatch
 }
