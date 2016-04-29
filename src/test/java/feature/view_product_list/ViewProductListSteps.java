@@ -3,8 +3,13 @@ package feature.view_product_list;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+<<<<<<< HEAD:src/test/java/feature/view_product_list/ViewProductListSteps.java
 import shoppingcart.Product;
 import shoppingcart.Store;
+=======
+import cucumber.api.junit.Cucumber;
+import com.bt.agileproject.shoppingcart.Store;
+>>>>>>> origin/master:src/test/java/feature/view_product_list/ViewProductList.java
 
 import java.math.BigDecimal;
 
@@ -36,8 +41,14 @@ public class ViewProductListSteps {
     @Given("^There (is no product|are products) in product catalogue$")
     public void thereAreProductsInProductCatalogue(String condition) throws Throwable {
         if ("are products".equals(condition)) {
+<<<<<<< HEAD:src/test/java/feature/view_product_list/ViewProductListSteps.java
             Product product = new Product(1L, "Notebook",new BigDecimal(2.30));
             store.add(product);
+=======
+
+        } else {
+            // Nothing to do for is no
+>>>>>>> origin/master:src/test/java/feature/view_product_list/ViewProductList.java
         }
     }
 
