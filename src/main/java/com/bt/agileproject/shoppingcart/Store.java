@@ -1,8 +1,7 @@
 package com.bt.agileproject.shoppingcart;
 
-import com.opencsv.CSVReader;
+import com.bt.agileproject.shoppingcart.product.Product;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +11,6 @@ import java.util.List;
 public class Store {
 
     private List<Product> products = new ArrayList<Product>();
-    private CSVReader csvReader;
 
     public Store() {
 
@@ -20,10 +18,6 @@ public class Store {
 
     public Store(List<Product> products) {
         this.products = products;
-    }
-
-    public Store(CSVReader csvReader) {
-        this.csvReader = csvReader;
     }
 
     public String catalogDisplay() {
@@ -35,13 +29,5 @@ public class Store {
 
     public void add(Product item) {
         products.add(item);
-    }
-
-    public void importProductFromCSV() throws IOException {
-        String [] nextLine;
-        while ((nextLine = csvReader.readNext()) != null) {
-            // nextLine[] is an array of values from the line
-            System.out.println(nextLine[0] + nextLine[1] + "etc...");
-        }
     }
 }

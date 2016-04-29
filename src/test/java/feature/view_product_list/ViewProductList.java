@@ -35,7 +35,7 @@ public class ViewProductList {
     @Given("^There (is no product|are products) in product catalogue$")
     public void thereAreProductsInProductCatalogue(String condition) throws Throwable {
         if ("are products".equals(condition)) {
-            store.add("notebook");
+
         } else {
             // Nothing to do for is no
         }
