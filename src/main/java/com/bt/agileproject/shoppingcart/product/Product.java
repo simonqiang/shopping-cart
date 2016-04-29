@@ -1,5 +1,7 @@
 package com.bt.agileproject.shoppingcart.product;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -8,13 +10,20 @@ import java.util.UUID;
  */
 public class Product {
     protected String name;
-    protected double price;
-    protected String id;
+    protected BigDecimal price;
+    private DecimalFormat nf = new DecimalFormat("#.00");
+    protected Long id;
     protected int quantity;
     private Date discountStartDate;
     private Date discountEndDate;
     private double discount;
     private boolean multiBuy;
+
+    public Product(Long id, String name, BigDecimal price) {
+        this.name = name;
+        this.price = price;
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -24,19 +33,19 @@ public class Product {
         this.name = name;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
