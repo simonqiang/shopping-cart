@@ -88,4 +88,9 @@ public class Product {
     public void setMultiBuy(boolean multiBuy) {
         this.multiBuy = multiBuy;
     }
+
+    @Override
+    public String toString() {
+        return name+" "+nf.format(price.doubleValue());
+    }
 }
