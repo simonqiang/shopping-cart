@@ -1,19 +1,19 @@
 package feature.view_product_list;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.junit.Cucumber;
-import org.junit.runner.RunWith;
+import shoppingcart.Product;
 import shoppingcart.Store;
+
+import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
 
 /**
  * Created by 608729600 on 4/28/2016.
  */
-public class ViewProductList {
+public class ViewProductListSteps {
     private Store store = new Store();
     private String screenText;
 
@@ -29,16 +29,15 @@ public class ViewProductList {
 
     @Then("^Display all products in product catalogue$")
     public void displayAllProductsInProductCatalogue() throws Throwable {
-        assertEquals("[notebook]", screenText);
+        assertEquals("[Notebook 2.30]", screenText);
     }
 
 
     @Given("^There (is no product|are products) in product catalogue$")
     public void thereAreProductsInProductCatalogue(String condition) throws Throwable {
         if ("are products".equals(condition)) {
-            store.add("notebook");
-        } else {
-            // Nothing to do for is no
+            Product product = new Product(1L, "Notebook",new BigDecimal(2.30));
+            store.add(product);
         }
     }
 

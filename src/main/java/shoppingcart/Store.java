@@ -8,7 +8,8 @@ import java.util.List;
  */
 public class Store {
 
-    private List<String> products = new ArrayList<String>();
+    private List<Product> products = new ArrayList<Product>();
+
 
     public String catalogDisplay() {
         if (products.isEmpty()) {
@@ -17,7 +18,7 @@ public class Store {
         return products.toString();
     }
 
-    public void add(String item) {
+    public void add(Product item) {
         products.add(item);
     }
 }
