@@ -10,7 +10,6 @@ import java.util.Date;
  */
 public class WarehouseProduct extends Product {
 
-
     public WarehouseProduct(String name, BigDecimal price, Long id,
                             int quantity, Date discountStartDate, Date discountEndDate,
                             double discount, boolean multiBuy) {

@@ -8,7 +8,12 @@ import com.bt.agileproject.shoppingcart.product.Product;
 public class Order {
     private Product product;
     private int order_quantity;
-    private boolean is_dispatched;
+    private boolean is_dispatched = false;
+
+    public Order(Product product)
+    {
+        this.product = product;
+    }
 
     public Product getProduct() {
         return product;
@@ -33,4 +38,10 @@ public class Order {
     public void setIs_dispatched(boolean is_dispatched) {
         this.is_dispatched = is_dispatched;
     }
+
+    public String toString()
+    {
+        return "Name: " + product.getName() + " price : " + product.getPrice().doubleValue() + " order quantity : " + order_quantity;
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.bt.agileproject.shoppingcart;
 
 import com.bt.agileproject.shoppingcart.product.WarehouseProduct;
+import com.bt.agileproject.shoppingcart.store.Order;
 import com.opencsv.CSVReader;
 import org.apache.commons.lang3.StringUtils;
 
@@ -20,6 +21,12 @@ public class Warehouse {
     private SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
     private List<WarehouseProduct> products = new ArrayList<WarehouseProduct>();
+    private List<Order> orders = new ArrayList<Order>();
+
+    public Warehouse(List<Order> orders)
+    {
+        this.orders = orders;
+    }
 
     public Warehouse(CSVReader csvReader)
     {
@@ -29,24 +36,25 @@ public class Warehouse {
     public void importProductFromCSV() throws IOException {
         String [] nextLine;
         while ((nextLine = csvReader.readNext()) != null) {
-            products.add(convertToProduct(nextLine[0],
-                    nextLine[1],
-                    nextLine[2],
-                    nextLine[3],
-                    nextLine[4],
-                    nextLine[5],
-                    nextLine[6],
-                    nextLine[7]));
+            products.add(convertToProduct(nextLine));
         }
     }
 
-    private WarehouseProduct convertToProduct(String name, String price, String id,
-                                              String quantity, String discountStartDate, String discountEndDate,
-                                              String discount, String multiBuy)
+    private WarehouseProduct convertToProduct(String[] aArray)
     {
         Date startDate = null;
         Date endDate = null;
         boolean isMultiBuy = false;
+
+        String name = aArray[0];
+        String price = aArray[1];
+        String id = aArray[2];
+        String quantity = aArray[3];
+        String discountStartDate = aArray[4];
+        String discountEndDate = aArray[5];
+        String discount = aArray[6];
+        String multiBuy = aArray[7];
+
         try {
             if(StringUtils.isNotEmpty(discountStartDate))
             {
@@ -73,4 +81,19 @@ public class Warehouse {
         return products;
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public List<String> getUndispatchedOrders() {
+        List<String> tempList = new ArrayList<String>();
+        for(Order order : getOrders())
+        {
+            if(!order.is_dispatched())
+            {
+                tempList.add(order.toString());
+            }
+        }
+        return tempList;
+    }
 }
